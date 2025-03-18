@@ -15,25 +15,6 @@
         <img src="~/assets/svg/fire-extinguisher.svg" alt="Fire Extinguisher" class="image">
     </div>
 </template>
-<script>
-// import { useCounterStore } from '@/store/modules/cardsInfo/index.js'
-// import { mapActions, mapState } from 'pinia';
-
-export default {
-    name: "Hero",
-    // computed: {
-    //     ...mapState(useCounterStore, ["getCount"]),
-    // },
-    // methods: {
-    //     ...mapActions(useCounterStore, ["increment"]),
-    // },
-    // watch: {
-    //     count(val) {
-    //         console.log(val);
-    //     }
-    // }
-}
-</script>
 <style scoped>
     .Hero {
         height: 50vh;

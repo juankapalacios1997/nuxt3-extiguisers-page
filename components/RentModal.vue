@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div>
         <button id="show-btn" class="btn btn-primary w-100" @click="showModal">Rent me!</button>
         
@@ -23,7 +23,12 @@
                         </client-only>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-danger w-100" @click="toggleModal">Order</button>
+                        <button 
+                        class="btn btn-danger w-100"
+                        @click="onClickOrder(props.product.id)"
+                        >
+                            Order
+                        </button>
                     </div>
                 </div>
             </div>
@@ -33,6 +38,15 @@
 
 <script setup lang="ts">
     import { Modal } from "bootstrap";
+
+    const store = useWebsiteStore();
+
+    const props = defineProps({
+        product: {
+            type: Object,
+            required: true,
+        }
+    })
 
     const range = ref({
         start: new Date(2022, 7, 15),
@@ -59,13 +73,14 @@
         }
     });
 
-    watch(range, (newVal) => {
-        console.log(newVal);
-    })
-
     const showModal = () => modalInstance.value?.show();
     const hideModal = () => modalInstance.value?.hide();
     const toggleModal = () => modalInstance.value?.toggle();
+    
+    const onClickOrder = (id:number):void => {
+        store.addNewMyRental(id);
+        toggleModal();
+    }
 </script>
 
 <style scoped>

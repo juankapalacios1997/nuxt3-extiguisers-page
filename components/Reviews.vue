@@ -19,8 +19,6 @@ const websiteStore = useWebsiteStore();
 const executeFetchUsersReviews = async () => {
     await websiteStore.fetchUsersReviews();
 
-    console.log(websiteStore.getUserReviews);
-
     reviewers.value = websiteStore.getUserReviews;
 }
 
